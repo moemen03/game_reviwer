@@ -1,0 +1,235 @@
+:root {
+    --primary-color: #F7F6FB;
+    --primary-color-light: #636262;
+    --nav-width: 80px;
+}
+
+body {
+    font-family: 'Pixelify Sans', sans-serif;
+    background-color: #222;
+}
+
+p {
+    font-family: 'Salsa', cursive;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #444;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #222;
+    border-radius: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color-light)
+}
+
+.loader {
+    background-color: rgba(0, 0, 0, .8);
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.pacman,
+.pacman>div {
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.pacman {
+    display: block;
+    font-size: 0;
+    color: #f6d860;
+    width: 64px;
+    height: 64px;
+}
+
+.pacman>div {
+    display: inline-block;
+    float: none;
+    background-color: currentColor;
+    border: 0 solid currentColor;
+}
+
+
+.pacman>div:nth-child(1),
+.pacman>div:nth-child(2) {
+    width: 0;
+    height: 0;
+    background: transparent;
+    border-style: solid;
+    border-width: 32px;
+    border-right-color: transparent;
+    border-radius: 100%;
+    -webkit-animation: pacman-rotate-half-up .5s 0s infinite;
+    -moz-animation: pacman-rotate-half-up .5s 0s infinite;
+    -o-animation: pacman-rotate-half-up .5s 0s infinite;
+    animation: pacman-rotate-half-up .5s 0s infinite;
+}
+
+.pacman>div:nth-child(2) {
+    margin-top: -64px;
+    -webkit-animation-name: pacman-rotate-half-down;
+    -moz-animation-name: pacman-rotate-half-down;
+    -o-animation-name: pacman-rotate-half-down;
+    animation-name: pacman-rotate-half-down;
+}
+
+.pacman>div:nth-child(3),
+.pacman>div:nth-child(4),
+.pacman>div:nth-child(5),
+.pacman>div:nth-child(6) {
+    position: absolute;
+    top: 50%;
+    left: 200%;
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    opacity: 0;
+    -webkit-animation: pacman-balls 2s 0s infinite linear;
+    -moz-animation: pacman-balls 2s 0s infinite linear;
+    -o-animation: pacman-balls 2s 0s infinite linear;
+    animation: pacman-balls 2s 0s infinite linear;
+}
+
+.pacman>div:nth-child(3) {
+    -webkit-animation-delay: -1.44s;
+    -moz-animation-delay: -1.44s;
+    -o-animation-delay: -1.44s;
+    animation-delay: -1.44s;
+}
+
+.pacman>div:nth-child(4) {
+    -webkit-animation-delay: -1.94s;
+    -moz-animation-delay: -1.94s;
+    -o-animation-delay: -1.94s;
+    animation-delay: -1.94s;
+}
+
+.pacman>div:nth-child(5) {
+    -webkit-animation-delay: -2.44s;
+    -moz-animation-delay: -2.44s;
+    -o-animation-delay: -2.44s;
+    animation-delay: -2.44s;
+}
+
+.pacman>div:nth-child(6) {
+    -webkit-animation-delay: -2.94s;
+    -moz-animation-delay: -2.94s;
+    -o-animation-delay: -2.94s;
+    animation-delay: -2.94s;
+}
+
+
+
+.wrapper {
+    width: var(--nav-width);
+}
+
+aside {
+    width: var(--nav-width);
+    background-color: var(--primary-color);
+    padding-top: .5rem;
+    transition: .5s ease;
+    position: fixed;
+    height: 100%;
+}
+
+nav {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden
+}
+
+.navbar-brand,
+.nav-link {
+    display: flex;
+    align-items: center;
+    text-wrap: nowrap;
+}
+
+.navbar-brand,
+.navbar-brand:hover {
+    color: #222;
+}
+
+.navbar-brand {
+    padding-left: 20px;
+    gap: 15px;
+}
+
+.nav-link {
+    position: relative;
+    color: var(--primary-color-light);
+    margin-bottom: 1.5rem;
+    padding: .5rem 0 .5rem 1.5rem;
+    gap: 20px;
+    transition: .3s
+}
+
+.nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #222
+}
+
+.indicator {
+    --left: 15px;
+    display: none;
+    position: absolute;
+    top: -36%;
+    left: var(--left);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #29fd53;
+    border: 6px solid #222;
+    transition: .3s ease;
+}
+
+.games-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.game {
+    transform: scale(.98);
+    transition: .3s ease;
+    cursor: pointer;
+    filter: grayscale(50%);
+}
+
+.game:hover {
+    transform: scale(1);
+    filter: grayscale(0);
+}
+
+.close-btn {
+    cursor: pointer;
+}
+
+
